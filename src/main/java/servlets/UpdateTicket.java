@@ -1,4 +1,5 @@
 package servlets;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -15,31 +16,30 @@ import helper.FactoryProvider;
 import models.Ticket;
 
 @WebServlet("/UpdateTicket")
-public class UpdateTicket extends HttpServlet{
+public class UpdateTicket extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-	public UpdateTicket() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public UpdateTicket() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-		String title = request.getParameter("title");
+        String title = request.getParameter("title");
         String description = request.getParameter("description");
         String status = request.getParameter("status");
         String priority = request.getParameter("priority");
 
-		Session session = FactoryProvider.getFactory().openSession();
-		Transaction tx = session.beginTransaction();
-        String message="";
+        Session session = FactoryProvider.getFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        String message = "";
         Ticket check = session.get(Ticket.class, id);
-        if(check == null){
+        if (check == null) {
             message = "Ticket Updating Failed - Ticket not found";
-        }
-        else{
+        } else {
             check.setTitle(title);
             check.setDescription(description);
             check.setStatus(status);
@@ -49,8 +49,8 @@ public class UpdateTicket extends HttpServlet{
             message = "Ticket updated successfully";
         }
         request.setAttribute("message", message);
-            RequestDispatcher rd = request.getRequestDispatcher("updateticket.jsp");
-            rd.forward(request, response);
-          session.close();
-	}
+        RequestDispatcher rd = request.getRequestDispatcher("updateticket.jsp");
+        rd.forward(request, response);
+        session.close();
+    }
 }

@@ -1,4 +1,5 @@
 package servlets;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -15,16 +16,16 @@ import helper.FactoryProvider;
 import models.Ticket;
 
 @WebServlet("/DeleteTicket")
-public class DeleteTicket extends HttpServlet{
+public class DeleteTicket extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-	public DeleteTicket() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public DeleteTicket() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
         Ticket ticket = new Ticket();
@@ -38,8 +39,7 @@ public class DeleteTicket extends HttpServlet{
             session.remove(check);
             tx.commit();
             message = "Ticket Deletion Successful";
-        }
-        else {
+        } else {
             message = "Ticket Deletion Failed - Ticket not found";
         }
         request.setAttribute("message", message);
@@ -48,5 +48,5 @@ public class DeleteTicket extends HttpServlet{
         dispatcher.forward(request, response);
 
         session.close();
-	}
+    }
 }
