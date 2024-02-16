@@ -3,16 +3,14 @@
 <%@ page import="models.Ticket" %>
 <%@ page import="org.hibernate.Session" %>
 <%@ page import="helper.FactoryProvider" %>
-<%@ page import="java.util.Objects" %>
-
 <html>
 <head>
-    <title>Display Tickets</title>
+    <title>Resolve Tickets</title>
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
-<h1>Active Tickets</h1>
-<table>
+    <h1>Tickets</h1>
+    <table>
     <tr>
         <th>Id</th>
         <th>Title</th>
@@ -30,12 +28,11 @@
             if (tickets.isEmpty()) {
     %>
     <tr>
-        <td colspan="5">No Active tickets found</td>
+        <td colspan="5">No tickets found</td>
     </tr>
     <%
     } else {
         for (Ticket ticket : tickets) {
-            if (!Objects.equals(ticket.getStatus(), "resolved")) {
     %>
     <tr>
         <td><%= ticket.getId() %>
@@ -50,7 +47,6 @@
         </td>
     </tr>
     <%
-                    }
                 }
             }
         } finally {
@@ -59,8 +55,32 @@
     %>
 </table>
 <br>
-<a href="index.jsp">
-    <button>Back to Home</button>
-</a>
+<h1>Resolve Ticket</h1>
+<form action="ResolveTicket" method="post">
+    <label for="id">Ticket ID:</label>
+    <input type="text" id="id" name="id" required>
+    <br>
+    <label for="status">Status:</label>
+    <select id="status" name="status" required>
+        <option value="open">Open</option>
+        <option value="in progress">In Progress</option>
+        <option value="resolved">Resolved</option>
+    </select>
+    <br>
+    <input type="submit" value="Resolve">
+</form>
+<br>
+<%
+    String message = (String) request.getAttribute("message");
+    if (message != null && !message.isEmpty()) {
+%>
+<div class="alert" style="width:fit-content;padding: 5px;border:1px solid grey;">
+    Alert: <%= message %> !
+</div>
+<%
+    }
+%>
+<br>
+<a href="index.jsp"><button>Back to Home</button></a>
 </body>
 </html>

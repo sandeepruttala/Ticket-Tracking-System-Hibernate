@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+    font-family: Arial, 'sans-serif';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.links a{
+    margin: 0 10px;
+    margin-bottom: 50px;
+    text-decoration: none;
+}
+
+.links button{
+    font-size: 15px;
+    width: 200px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+h1{
+    margin: 20px;
+}
+
+form{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 100%;
+    padding: 5px;
+}
+
+input[type="submit"]{
+    margin-top: 5px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+select{
+    padding: 5px;
+}
+
+table{
+    width: 80%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+
+th, tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border:  none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.alert{
+    position: fixed;
+    top:30px;
+    right: 30px;
+    animation: slide-left 1s;
+}
+
+@keyframes  slide-left{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}

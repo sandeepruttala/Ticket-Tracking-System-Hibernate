@@ -6,10 +6,11 @@
 
 <html>
 <head>
-    <title>Display Tickets</title>
+    <title>All Tickets</title>
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
-<h1>Display Tickets</h1>
+<h1>All Tickets</h1>
 <table>
     <tr>
         <th>Id</th>

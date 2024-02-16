@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket Tracking System</title>
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
 <h1>Ticket Tracking System</h1>
+<div class="links">
 <a href="addticket.jsp">
     <button>Add Ticket</button>
 </a>
@@ -22,5 +24,9 @@
 <a href="updateticket.jsp">
     <button>Update Ticket</button>
 </a>
+<a href="resolvetickets.jsp">
+    <button>Resolve Tickets</button>
+</a>
+</div>
 </body>
 </html>

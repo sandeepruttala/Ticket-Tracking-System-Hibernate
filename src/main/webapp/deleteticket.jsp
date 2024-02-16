@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Delete Ticket</title>
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
 <h1>Tickets</h1>
@@ -66,7 +67,7 @@
     String message = (String) request.getAttribute("message");
     if (message != null && !message.isEmpty()) {
 %>
-<div style="width:fit-content;padding: 5px;border:1px solid grey;">
+<div class="alert" style="width:fit-content;padding: 5px;border:1px solid grey;">
     Alert: <%= message %> !
 </div>
 <%
